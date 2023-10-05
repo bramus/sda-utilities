@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Scroll-Driven Animations Utilities: <code>runOnce</code></title>
+	<link rel="stylesheet" href="run-once.css">
+	<script type="module">
+		import { runOnce } from './sda-utilities.js';
+
+		// Chrome seems to fire animationend on page load?! – https://crbug.com/1470309
+		// To counteract, we only attach the listeners on load
+		window.addEventListener("load", (e) => {
+			document.querySelectorAll(".photo").forEach(($photo) => {
+				runOnce($photo, "animate-in");
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<header>
+		<h1>Run Scroll-Driven Animations only once</h1>
+		<p>Demo for <code>runOnce</code></p>
+		<p><em>Scroll ↕</em></p>
+	</header>
+	<main>
+		<ul class="photos">
+			<li class="photo"><img src="https://picsum.photos/seed/1i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/2i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/3i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/4i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/5i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/6i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/7i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/8i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/9i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/10i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/11i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/12i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/13i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/14i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/15i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/16i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/17i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/18i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/19i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/20i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/21i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/22i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/23i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/24i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/25i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/26i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/27i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/28i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/29i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/30i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/31i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/32i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/33i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/34i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/35i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/36i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/37i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/38i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/39i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/40i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/41i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/42i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/43i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/44i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/45i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/46i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/47i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/48i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/49i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/50i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/51i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/52i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/53i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/54i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/55i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/56i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/57i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/58i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/59i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/60i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/61i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/62i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/63i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/64i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/65i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/66i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/67i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/68i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/69i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/70i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/71i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/72i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/73i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/74i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/75i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/76i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/77i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/78i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/79i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/80i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/81i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/82i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/83i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/84i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/85i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/86i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/87i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/88i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/89i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/90i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/91i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/92i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/93i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/94i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/95i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/96i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/97i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/98i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/1i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/2i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/3i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/4i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/5i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/6i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/7i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/8i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/9i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/10i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/11i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/12i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/13i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/14i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/15i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/16i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/17i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/18i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/19i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/20i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/21i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/22i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/23i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/24i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/25i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/26i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/27i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/28i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/29i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/30i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/31i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/32i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/33i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/34i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/35i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/36i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/37i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/38i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/39i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/40i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/41i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/42i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/43i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/44i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/45i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/46i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/47i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/48i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/49i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/50i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/51i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/52i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/53i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/54i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/55i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/56i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/57i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/58i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/59i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/60i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/61i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/62i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/63i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/64i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/65i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/66i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/67i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/68i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/69i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/70i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/71i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/72i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/73i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/74i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/75i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/76i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/77i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/78i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/79i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/80i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/81i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/82i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/83i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/84i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/85i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/86i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/87i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/88i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/89i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/90i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/91i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/92i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/93i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/94i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/95i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/96i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/97i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/98i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+			<li class="photo"><img src="https://picsum.photos/seed/99i/400/400" alt="photo" height="400" width="400" loading="lazy"></li>
+		</ul>
+	</main>
+	<footer>
+		<p>Fin.</p>
+	</footer>
+</body>
+
+</html>

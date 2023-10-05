@@ -1,0 +1,58 @@
+{
+    "name": "@bramus/sda-utilities",
+    "version": "1.0.0",
+    "description": "Collection of utility functions for use with Scroll-Driven Animations",
+    "type": "module",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "exports": {
+        ".": {
+            "browser": "./dist/index.js",
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
+        }
+    },
+    "unpkg": "./dist/index.js",
+    "jsdelivr": "./dist/index.js",
+    "files": [
+        "src",
+        "dist"
+    ],
+    "scripts": {
+        "build-esm": "esbuild --bundle ./src/index.js --outfile=./dist/index.js --format=esm --sourcemap --minify",
+        "build-cjs": "esbuild --bundle ./src/index.js --outfile=./dist/index.cjs --format=cjs --sourcemap --minify",
+        "lint": "prettier --check '{src,test,demo}/**/*.{ts,tsx,js,jsx}'",
+        "prettier": "prettier --write '{src,test,demo}/**/*.{ts,tsx,js,jsx}'",
+        "build": "npm run build-esm && npm run build-cjs",
+        "dev": "esbuild --bundle ./src/index.js --outfile=./demo/sda-utilities.js --format=esm --sourcemap --minify --watch --servedir=demo",
+        "prepack": "npm run prevent-dirty-tree && npm run test",
+        "prepublish": "npm run build",
+        "pretest": "npm run build",
+        "test": "echo \"No tests specified\"",
+        "preversion": "npm run prevent-dirty-tree && npm run test",
+        "prevent-dirty-tree": "exit $(git status --porcelain | wc -l)"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bramus/sda-utilities.git"
+    },
+    "keywords": [
+        "css",
+        "scroll-driven animations"
+    ],
+    "author": {
+        "name": "Bramus Van Damme",
+        "email": "bramus@bram.us",
+        "twitter": "@bramus",
+        "web": "https://www.bram.us/"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/bramus/sda-utilities/issues"
+    },
+    "homepage": "https://github.com/bramus/sda-utilities#readme",
+    "devDependencies": {
+        "esbuild": "^0.19.4",
+        "prettier": "^3.0.3"
+    }
+}

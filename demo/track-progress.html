@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Scroll-Driven Animations Utilities: <code>trackProgress</code></title>
+	<link rel="stylesheet" href="track-progress.css">
+	<script type="module">
+		import { trackProgress } from './sda-utilities.js';
+
+		trackProgress(document.querySelector('.animation-subject').getAnimations()[0], (progress) => {
+			document.querySelector('.animation-subject').innerText = `${(progress * 100).toFixed(5)}%`;
+		});
+	</script>
+</head>
+<body>
+	<header>
+		Demo showing <code>trackOnce</code>
+	</header>
+
+	<div class="animation-subject">0%</div>
+
+	<div class="warning">
+		<p>⚠️ Your browser does not support Scroll-driven Animations. Please use Chrome 115 or newer.</p>
+	</div>
+</body>
+</html>
