@@ -52,7 +52,7 @@
     },
     "homepage": "https://github.com/bramus/sda-utilities#readme",
     "devDependencies": {
-        "esbuild": "^0.19.4",
-        "prettier": "^3.0.3"
+        "esbuild": "^0.24.0",
+        "prettier": "^3.4.1"
     }
 }
