@@ -1,4 +1,4 @@
-const trackProgress = (animation, cb, precision = 5) => {
+const trackProgressUsingRAF = (animation, cb, precision) => {
 	let progress = null;
 
 	const updateValue = () => {
@@ -16,6 +16,23 @@ const trackProgress = (animation, cb, precision = 5) => {
 	};
 
 	requestAnimationFrame(updateValue);
+};
+
+const trackProgressUsingBuiltIn = (animation, cb, precision) => {
+	const $scroller = animation.timeline.source == document.documentElement ? document : animation.timeline.source;
+	$scroller.addEventListener('scroll', (e) => {
+		cb(animation.overallProgress.toFixed(precision));
+	});
+
+	cb(animation.overallProgress.toFixed(precision));
+};
+
+const trackProgress = (animation, cb, precision = 5) => {
+	if (!("Animation" in globalThis && "overallProgress" in Animation.prototype)) {
+		trackProgressUsingRAF(animation, cb, precision);
+	} else {
+		trackProgressUsingBuiltIn(animation, cb, precision);
+	}
 };
 
 export default trackProgress;
