@@ -1,6 +1,6 @@
 {
     "name": "@bramus/sda-utilities",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Collection of utility functions for use with Scroll-Driven Animations",
     "type": "module",
     "main": "./dist/index.cjs",
