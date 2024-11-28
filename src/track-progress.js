@@ -1,4 +1,4 @@
-const trackProgressUsingRAF = (animation, cb, precision) => {
+const trackProgressThroughEffect = (animation, cb, precision) => {
 	let progress = null;
 
 	const updateValue = () => {
@@ -18,20 +18,30 @@ const trackProgressUsingRAF = (animation, cb, precision) => {
 	requestAnimationFrame(updateValue);
 };
 
-const trackProgressUsingBuiltIn = (animation, cb, precision) => {
-	const $scroller = animation.timeline.source == document.documentElement ? document : animation.timeline.source;
-	$scroller.addEventListener('scroll', (e) => {
-		cb(animation.overallProgress.toFixed(precision));
-	});
+// Note: once we have a `progress` event on an Animation, we can drop the rAF
+const trackProgressThroughAnimation = (animation, cb, precision) => {
+	let progress = null;
 
-	cb(animation.overallProgress.toFixed(precision));
+	const updateValue = () => {
+		if (animation && animation.currentTime) {
+			let newProgress = animation.overallProgress.toFixed(precision);
+
+			if (newProgress != progress) {
+				progress = newProgress;
+				cb(progress);
+			}
+		}
+		requestAnimationFrame(updateValue);
+	};
+
+	requestAnimationFrame(updateValue);
 };
 
 const trackProgress = (animation, cb, precision = 5) => {
-	if (!("Animation" in globalThis && "overallProgress" in Animation.prototype)) {
-		trackProgressUsingRAF(animation, cb, precision);
+	if (("Animation" in globalThis && "overallProgress" in Animation.prototype)) {
+		trackProgressThroughAnimation(animation, cb, precision);
 	} else {
-		trackProgressUsingBuiltIn(animation, cb, precision);
+		trackProgressThroughEffect(animation, cb, precision);
 	}
 };
 
